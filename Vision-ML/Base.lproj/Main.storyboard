@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVN-bt-oo2">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CmQ-Bj-cfz">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CmQ-Bj-cfz" customClass="RoundedShadowView" customModule="Vision_ML" customModuleProvider="target">
                                         <rect key="frame" x="20" y="30" width="335" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oep-bU-eRG">
@@ -51,7 +51,7 @@
                                             <constraint firstAttribute="trailing" secondItem="oep-bU-eRG" secondAttribute="trailing" constant="8" id="mUL-lJ-ndD"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUF-Jr-UO4">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUF-Jr-UO4" customClass="RoundedButton" customModule="Vision_ML" customModuleProvider="target">
                                         <rect key="frame" x="16" y="599" width="90" height="32"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -62,7 +62,7 @@
                                             <color key="titleColor" red="0.94275027509999998" green="0.68063069779999996" blue="0.4012731055" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o9S-nJ-gvW">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o9S-nJ-gvW" customClass="RoundedShadowImage" customModule="Vision_ML" customModuleProvider="target">
                                         <rect key="frame" x="280" y="503" width="75" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="Ll7-EP-D9J"/>
@@ -97,6 +97,7 @@
                         <outlet property="confidenceLabel" destination="vc8-RF-i3D" id="HIs-YM-rU3"/>
                         <outlet property="flashButton" destination="lUF-Jr-UO4" id="DPY-LG-4Mb"/>
                         <outlet property="identificationLabel" destination="Mag-57-KHW" id="q79-Om-WT0"/>
+                        <outlet property="roundedLabelsView" destination="CmQ-Bj-cfz" id="oM1-Pd-DyQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
