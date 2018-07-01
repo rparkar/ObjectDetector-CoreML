@@ -23,6 +23,7 @@ class CameraViewController: UIViewController {
     var captureSession : AVCaptureSession!
     var cameraOutput: AVCapturePhotoOutput!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    var photoData: Data?
     
     
     
@@ -40,6 +41,10 @@ class CameraViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCameraView))
+        tap.numberOfTapsRequired = 1
+        
 
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = AVCaptureSession.Preset.hd1920x1080
@@ -65,6 +70,8 @@ class CameraViewController: UIViewController {
 
             cameraView.layer.addSublayer(previewLayer!)
 
+            cameraView.addGestureRecognizer(tap)
+            
             captureSession.startRunning()
 
         }
@@ -73,6 +80,40 @@ class CameraViewController: UIViewController {
         }
     }
 
+    
+    @objc func didTapCameraView() {
+        let settings = AVCapturePhotoSettings()
+        let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first! //for generic photos/ no live photos
+        
+        let previewFormat = [kCVPixelBufferPixelFormatTypeKey as String:previewPixelType, kCVPixelBufferWidthKey as String : 160, kCVPixelBufferHeightKey as String: 160]
+        
+        settings.previewPhotoFormat = previewFormat
+        
+        cameraOutput.capturePhoto(with: settings, delegate: self)
+    }
+    
 
 }
+
+extension CameraViewController: AVCapturePhotoCaptureDelegate {
+    
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        
+        if let error = error {
+            debugPrint(error)
+        } else {
+            photo.fileDataRepresentation()
+            
+            let image = UIImage(data: photoData!)
+            self.capturedImageView.image = image
+        }
+    }
+    
+}
+
+
+
+
+
+
 
