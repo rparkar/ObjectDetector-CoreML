@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C6F2BAA20E9680C00D840DF /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6C6F2BA920E9680C00D840DF /* SqueezeNet.mlmodel */; };
 		6CCEF2F720E84B380070F5AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCEF2F620E84B380070F5AD /* AppDelegate.swift */; };
 		6CCEF2F920E84B380070F5AD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCEF2F820E84B380070F5AD /* CameraViewController.swift */; };
 		6CCEF2FC20E84B380070F5AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CCEF2FA20E84B380070F5AD /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C6F2BA920E9680C00D840DF /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
 		6CCEF2F320E84B380070F5AD /* Vision-ML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vision-ML.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CCEF2F620E84B380070F5AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CCEF2F820E84B380070F5AD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		6CCEF30A20E84B500070F5AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6C6F2BA920E9680C00D840DF /* SqueezeNet.mlmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CCEF2F920E84B380070F5AD /* CameraViewController.swift in Sources */,
+				6C6F2BAA20E9680C00D840DF /* SqueezeNet.mlmodel in Sources */,
 				6CCEF2F720E84B380070F5AD /* AppDelegate.swift in Sources */,
 				6CCEF30C20E855DF0070F5AD /* RoundedShadowView.swift in Sources */,
 				6CCEF30E20E856FF0070F5AD /* RoundedButton.swift in Sources */,
