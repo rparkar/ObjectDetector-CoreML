@@ -73,13 +73,18 @@
                                     <constraint firstAttribute="width" constant="75" id="iMH-kc-nGt"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="DqM-cD-OX3">
+                                <rect key="frame" x="307" y="577" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BVN-bt-oo2" secondAttribute="trailing" id="9BU-gr-sAm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CmQ-Bj-cfz" secondAttribute="trailing" constant="20" id="DHa-gC-ueN"/>
+                            <constraint firstItem="DqM-cD-OX3" firstAttribute="centerX" secondItem="o9S-nJ-gvW" secondAttribute="centerX" id="GSh-2t-pAm"/>
                             <constraint firstItem="BVN-bt-oo2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="H0p-Kw-U0v"/>
                             <constraint firstItem="lUF-Jr-UO4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="JfL-Yg-QUb"/>
+                            <constraint firstItem="DqM-cD-OX3" firstAttribute="centerY" secondItem="o9S-nJ-gvW" secondAttribute="centerY" id="ZCG-vq-qiT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BVN-bt-oo2" secondAttribute="bottom" id="bF6-4D-ikT"/>
                             <constraint firstItem="CmQ-Bj-cfz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="e2e-VJ-7vL"/>
                             <constraint firstItem="BVN-bt-oo2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fhY-GL-8bx"/>
@@ -97,6 +102,7 @@
                         <outlet property="flashButton" destination="lUF-Jr-UO4" id="DPY-LG-4Mb"/>
                         <outlet property="identificationLabel" destination="Mag-57-KHW" id="q79-Om-WT0"/>
                         <outlet property="roundedLabelsView" destination="CmQ-Bj-cfz" id="oM1-Pd-DyQ"/>
+                        <outlet property="spinner" destination="DqM-cD-OX3" id="XwG-4O-08b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

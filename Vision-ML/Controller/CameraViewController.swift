@@ -25,6 +25,7 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var identificationLabel: UILabel!
     @IBOutlet weak var confidenceLabel: UILabel!
     @IBOutlet weak var roundedLabelsView: RoundedShadowView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     //variables
     var captureSession : AVCaptureSession!
@@ -91,6 +92,10 @@ class CameraViewController: UIViewController {
 
     
     @objc func didTapCameraView() {
+        cameraView.isUserInteractionEnabled = false
+        spinner.isHidden = false
+        spinner.startAnimating()
+        
         let settings = AVCapturePhotoSettings()
 //        let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first! //for generic photos/ no live photos
 //        let previewFormat = [kCVPixelBufferPixelFormatTypeKey as String:previewPixelType, kCVPixelBufferWidthKey as String : 160, kCVPixelBufferHeightKey as String: 160]
@@ -180,7 +185,9 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
 extension CameraViewController: AVSpeechSynthesizerDelegate {
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         
-        
+        self.cameraView.isUserInteractionEnabled = true
+        spinner.isHidden = true
+        spinner.stopAnimating()
     }
 }
 
