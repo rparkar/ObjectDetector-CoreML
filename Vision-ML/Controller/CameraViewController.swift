@@ -32,6 +32,7 @@ class CameraViewController: UIViewController {
     var previewLayer: AVCaptureVideoPreviewLayer!
     var photoData: Data?
     var flashControlState: FlashState = .off
+    var speechSynthesizer = AVSpeechSynthesizer()
     
     
     
@@ -43,6 +44,7 @@ class CameraViewController: UIViewController {
         super.viewDidAppear(animated)
         
         previewLayer.frame = cameraView.bounds
+        speechSynthesizer.delegate = self
         
     }
 
@@ -110,14 +112,26 @@ class CameraViewController: UIViewController {
         guard let results = request.results as? [VNClassificationObservation] else {return}
         for classification in results {
             if classification.confidence < 0.5 {
-                self.identificationLabel.text = "I am not sure what this is. Please try again"
+                let unknownObjectMsg = "I am not sure what this is. Please try again"
+                self.identificationLabel.text = unknownObjectMsg
+                synthesizeSpeech(fromString: unknownObjectMsg)
                 self.confidenceLabel.text = ""
                 break
             } else {
-                self.identificationLabel.text = classification.identifier
-                self.confidenceLabel.text = "CONFIDENCE: \(Int(classification.confidence))%"
+                let identification = classification.identifier
+                let confidence = Int(classification.confidence * 100)
+                self.identificationLabel.text = identification
+                self.confidenceLabel.text = "CONFIDENCE: \(confidence)%"
+                let completeSentence = "This looks like a \(identification) and I am \(confidence) percent sure"
+                synthesizeSpeech(fromString: completeSentence)
+                break
             }
         }
+    }
+    
+    func synthesizeSpeech(fromString string: String) {
+        let speechUtterance = AVSpeechUtterance(string: string)
+        speechSynthesizer.speak(speechUtterance)
     }
     
     @IBAction func flashButtonWasPressed(_ sender: Any) {
@@ -130,6 +144,7 @@ class CameraViewController: UIViewController {
             flashControlState = .off
         }
     }
+    
     
 
 }
@@ -162,7 +177,12 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
 }
 
 
-
+extension CameraViewController: AVSpeechSynthesizerDelegate {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        
+        
+    }
+}
 
 
 
